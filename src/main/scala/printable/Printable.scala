@@ -2,6 +2,7 @@ package printable
 
 trait Printable[A] {
   def format(value: A): String
+  def contramap[B](f: B => A): Printable[B] = (value: B) => format(f(value))
 }
 
 object Printable {
