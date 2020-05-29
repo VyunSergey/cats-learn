@@ -30,6 +30,7 @@ object FunctorTest extends App {
 
   println(s"$li.map(_ + 1).map(_ * 2): " + li.map(f).map(g))
   println(s"F.map(F.map($li)(_ + 1))(_ * 2): " + listF.map(listF.map(li)(f))(g))
+  println(s"F.lift(g compose f)($li): " + listF.lift(g compose f)(li))
   println()
 
   println("check Identity Law for List with Int: " + identityLaw(li))
@@ -38,6 +39,7 @@ object FunctorTest extends App {
 
   println(s"$oi.map(_ + 1).map(_ * 2): " + oi.map(f).map(g))
   println(s"F.map(F.map($oi)(_ + 1))(_ * 2): " + opF.map(opF.map(oi)(f))(g))
+  println(s"F.lift(g compose f)($oi): " + opF.lift(g compose f)(oi))
   println()
 
   println("check Identity Law for Option with Int: " + identityLaw(oi))
@@ -46,6 +48,7 @@ object FunctorTest extends App {
 
   println(s"$ti.map(_ + 1).map(_ * 2): " + ti.map(f).map(g))
   println(s"F.map(F.map($ti)(_ + 1))(_ * 2): " + tryF.map(tryF.map(ti)(f))(g))
+  println(s"F.lift(g compose f)($ti): " + tryF.lift(g compose f)(ti))
   println()
 
   println("check Identity Law for Try with Int: " + identityLaw(ti))
@@ -54,6 +57,7 @@ object FunctorTest extends App {
 
   println(s"$ls.map(_ + 1).map(_ * 2): " + ls.map(fs).map(gs))
   println(s"F.map(F.map($ls)(_ + 1))(_ * 2): " + listF.map(listF.map(ls)(fs))(gs))
+  println(s"F.lift(g compose f)($ls): " + listF.lift(gs compose fs)(ls))
   println()
 
   println("check Identity Law for List with String: " + identityLaw(ls))
@@ -62,6 +66,7 @@ object FunctorTest extends App {
 
   println(s"$os.map(_ + 1).map(_ * 2): " + os.map(fs).map(gs))
   println(s"F.map(F.map($os)(_ + 1))(_ * 2): " + opF.map(opF.map(os)(fs))(gs))
+  println(s"F.lift(g compose f)($os): " + opF.lift(gs compose fs)(os))
   println()
 
   println("check Identity Law for Option with String: " + identityLaw(os))
@@ -70,6 +75,7 @@ object FunctorTest extends App {
 
   println(s"$ts.map(_ + 1).map(_ * 2): " + ts.map(fs).map(gs))
   println(s"F.map(F.map($ts)(_ + 1))(_ * 2): " + tryF.map(tryF.map(ts)(fs))(gs))
+  println(s"F.lift(g compose f)($ts): " + tryF.lift(gs compose fs)(ts))
   println()
 
   println("check Identity Law for Try with String: " + identityLaw(ts))
