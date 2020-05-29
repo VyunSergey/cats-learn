@@ -1,4 +1,4 @@
-package monoids
+package monoid
 
 import cats.Monoid
 import cats.syntax.monoid._

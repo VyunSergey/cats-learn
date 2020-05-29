@@ -1,4 +1,4 @@
-package monoids
+package monoid
 
 import semigroup.MySemigroup
 
