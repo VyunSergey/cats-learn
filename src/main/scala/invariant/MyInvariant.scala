@@ -5,5 +5,5 @@ trait MyInvariant[F[_]] {
 }
 
 object MyInvariant {
-  def apply[A](implicit inst: MyInvariant[A]): MyInvariant[A] = inst
+  def apply[F[_]](implicit inst: MyInvariant[F]): MyInvariant[F] = inst
 }
