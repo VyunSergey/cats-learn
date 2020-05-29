@@ -5,5 +5,5 @@ trait MyContravariant[F[_]] {
 }
 
 object MyContravariant {
-  def apply[A](implicit inst: MyContravariant[A]): MyContravariant[A] = inst
+  def apply[F[_]](implicit inst: MyContravariant[F]): MyContravariant[F] = inst
 }
