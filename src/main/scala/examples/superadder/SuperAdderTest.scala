@@ -1,7 +1,7 @@
-package examples
+package examples.superadder
 
 import cats.instances.int._
-import SuperAdderInstances._
+import examples.superadder.SuperAdderInstances._
 
 object SuperAdderTest extends App {
   val lst: List[Int] = List(1, 2, 3, 4)

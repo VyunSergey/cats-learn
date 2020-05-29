@@ -1,4 +1,4 @@
-package json
+package examples.json
 
 object JsonWriterInstances {
   implicit val stringJsonWriter: JsonWriter[String] =

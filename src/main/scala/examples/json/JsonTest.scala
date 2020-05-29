@@ -1,4 +1,4 @@
-package json
+package examples.json
 
 import JsonWriterInstances._
 import JsonSyntax._

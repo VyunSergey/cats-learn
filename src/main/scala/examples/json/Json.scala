@@ -1,4 +1,4 @@
-package json
+package examples.json
 
 sealed trait Json
 

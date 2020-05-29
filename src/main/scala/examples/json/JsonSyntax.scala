@@ -1,4 +1,4 @@
-package json
+package examples.json
 
 object JsonSyntax {
   implicit class JsonWriterOps[A](value: A) {
