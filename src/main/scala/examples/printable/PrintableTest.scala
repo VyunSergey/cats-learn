@@ -1,4 +1,4 @@
-package printable
+package examples.printable
 
 import PrintableInstances._
 import PrintableSyntax._

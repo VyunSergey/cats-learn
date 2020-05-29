@@ -10,7 +10,7 @@ import cats.syntax.show._
 import cats.syntax.option._
 import show.ShowInstances._
 import EqInstances._
-import printable.Cat
+import examples.printable.Cat
 
 object EqTest extends App {
   val eqInt = Eq[Int]

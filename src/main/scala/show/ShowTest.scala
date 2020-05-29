@@ -6,7 +6,7 @@ import cats.syntax.show._
 import ShowInstances._
 import java.util.Date
 
-import printable.Cat
+import examples.printable.Cat
 
 object ShowTest extends App {
   val i = 123

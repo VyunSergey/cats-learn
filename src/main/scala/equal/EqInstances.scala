@@ -5,7 +5,7 @@ import java.util.Date
 import cats.Eq
 import cats.instances.all._
 import cats.syntax.eq._
-import printable.Cat
+import examples.printable.Cat
 
 object EqInstances {
   implicit val dateEq: Eq[Date] = Eq.instance[Date]{

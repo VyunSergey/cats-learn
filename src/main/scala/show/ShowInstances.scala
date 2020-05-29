@@ -2,7 +2,7 @@ package show
 
 import cats.Show
 import java.util.Date
-import printable.Cat
+import examples.printable.Cat
 
 object ShowInstances {
   implicit val dateShow: Show[Date] =

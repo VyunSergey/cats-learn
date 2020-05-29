@@ -1,4 +1,4 @@
-package printable
+package examples.printable
 
 object PrintableInstances {
   implicit val stringPrintable: Printable[String] =
