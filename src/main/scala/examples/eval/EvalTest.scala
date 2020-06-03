@@ -23,4 +23,39 @@ object EvalTest extends App {
 
   println(always)
   println(always.value, always.value, always.value)
+
+  val greeting = Eval.always {
+    println("Step 1")
+    "Hello"
+  }.map { str =>
+    println("Step 2")
+    s"$str World!"
+  }
+  println()
+  Thread.sleep(1000)
+  println(greeting.value)
+
+  val ans = for {
+    a <- Eval.always {println("Calculating A"); 40}
+    b <- Eval.now { println("Calculating B"); 2}
+  } yield {
+    println("Adding A + B")
+    a + b
+  }
+  println()
+  Thread.sleep(1000)
+  println(ans.value)
+
+  val saying = Eval.always {
+    println("Step 1"); "The cat"
+  }.map { str =>
+    println("Step2"); s"$str sat on"
+  }.memoize
+    .map { str =>
+    println("Step3"); s"$str the mat"
+  }
+  println()
+  Thread.sleep(1000)
+  println(saying.value)
+  println(saying.value)
 }
