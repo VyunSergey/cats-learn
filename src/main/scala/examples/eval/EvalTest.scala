@@ -15,6 +15,36 @@ object EvalTest extends App {
   // Aka def`s
   val always: Eval[Double] = Eval.always(Math.random * 100)
 
+  // recursion method for computing Factorial: n! = n * (n - 1) * ... * 1
+  def factorial(n: BigInt): BigInt = {
+    if (n == 1) n else n * factorial(n - 1)
+  }
+
+  @scala.annotation.tailrec
+  def tailRecFactorial(n: BigInt, result: BigInt = 1): BigInt = {
+    if (n == 1) result else tailRecFactorial(n - 1, n * result)
+  }
+
+  // Eval provides methods map and flatMap which are trampolined
+  // That means we can nested calls to map and flatMap and it will Stack Safe
+  // Defer provides a delayed computation which is Stack Safe
+  def stackSafeFactorial(n: BigInt): Eval[BigInt] = {
+    if (n == 1) Eval.now(n)
+    else Eval.defer(stackSafeFactorial(n - 1)).map(_ * n)
+  }
+  println(factorial(5))
+  println(tailRecFactorial(5))
+  println(stackSafeFactorial(5).value)
+
+  try {
+    println(factorial(10000))
+  } catch {
+    case _: java.lang.StackOverflowError => println("java.lang.StackOverflowError")
+    case _: Throwable => println("Other Error")
+  }
+  println(tailRecFactorial(10000))
+  println(stackSafeFactorial(10000).value)
+
   println(now)
   println(now.value, now.value, now.value)
 
