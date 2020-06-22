@@ -13,7 +13,7 @@ lazy val root = (project in file("."))
     scalacOptions ++= scalaCompilerOptions,
     libraryDependencies ++= commonLibraryDependencies,
     addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full),
-    addCompilerPlugin("org.spire-math" %% "kind-projector"     % "0.9.6"),
+    addCompilerPlugin("org.typelevel"  %% "kind-projector"     % "0.11.0" cross CrossVersion.full),
     addCompilerPlugin("com.olegpy"     %% "better-monadic-for" % "0.2.4")
   )
 
