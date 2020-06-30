@@ -37,3 +37,7 @@ trait MyFoldable[F[_]] {self =>
       eb.map(Stream.cons(a, _))
     }.value
 }
+
+object MyFoldable {
+  def apply[F[_]](implicit F: MyFoldable[F]): MyFoldable[F] = F
+}
