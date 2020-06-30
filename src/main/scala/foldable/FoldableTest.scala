@@ -6,6 +6,7 @@ import cats.instances.list._
 import cats.instances.option._
 import cats.instances.stream._
 import cats.instances.string._
+import cats.instances.vector._
 import cats.syntax.foldable._
 
 object FoldableTest extends App {
@@ -54,4 +55,12 @@ object FoldableTest extends App {
   // List and Vector provide stack safe foldRight
   println(bigData.toList.foldRight(0L)(_ + _))
   println(bigData.toVector.foldRight(0L)(_ + _))
+
+  // Compose Foldable`s to support deep folding of nested sequences
+  val Fl = Foldable[List]
+  val Fv = Foldable[Vector]
+  val Fc = Fl compose Fv
+
+  val res = Fc.combineAll(List(Vector(1, 2, 3), Vector(4), Vector(5, 6)))
+  println(res)
 }
